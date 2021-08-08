@@ -39,4 +39,4 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
 def ownerWithdraw():
     assert self.owner == msg.sender
     send(msg.sender,self.balance)
-    ERC20.transfer(msg.sender, self.balance)
+    log Transfer(msg.sender, self.balance)
