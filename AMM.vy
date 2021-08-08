@@ -46,3 +46,4 @@ def ownerWithdraw():
     self.owner.transfer(self.owner, self.(tokenAQty)
     self.owner.transfer(self.owner, self.(tokenBQty)
     selfdestruct(self.owner)
+    
