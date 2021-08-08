@@ -21,6 +21,11 @@ def get_token_address(token: uint256) -> address:
 def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity: uint256, tokenB_quantity: uint256):
 	assert self.invariant == 0 #This ensures that liquidity can only be provided once
 	#Your code here
+    self.tokenA.address = tokenA_addr
+    self.tokenB.address = tokenB_addr
+    tokenAQty = tokenA_quantity
+    tokenBQty = tokenB_quantity
+
 	assert self.invariant > 0
 
 # Trades one token for the other
@@ -33,4 +38,4 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
 @external
 def ownerWithdraw():
     assert self.owner == msg.sender
-	#Your code here
+    send(msg.sender,self.balance)
