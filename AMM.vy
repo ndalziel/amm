@@ -36,11 +36,11 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
     if sell_token == self.tokenA.address:
         #self.tokenA.transferFrom(sell_token, self, sell_quantity)
         self.tokenAQty  = self.tokenAQty - sell_quantity
-        self.tokenBQty = self.tokenBQty + (self.invariant / sell_quanity)
+        self.tokenBQty = self.tokenBQty + (self.invariant / sell_quantity)
     else:
         #self.tokenB.transferFrom(sell_token, self, sell_quantity)
         self.tokenAQty  = self.tokenBQty - sell_quantity
-        self.tokenBQty = self.tokenAQty + (self.invariant / sell_quanity)
+        self.tokenBQty = self.tokenAQty + (self.invariant / sell_quantity)
     
 
 # Owner can withdraw their funds and destroy the market maker
