@@ -8,11 +8,6 @@ tokenA: ERC20 #The ERC20 contract for tokenA
 tokenB: ERC20 #The ERC20 contract for tokenB
 owner: public(address) #The liquidity provider (the address that has the right to withdraw funds and close the contract)
 
-event Transfer:
-    sender: indexed(address)
-    receiver: indexed(address)
-    value: uint256
-
 @external
 def get_token_address(token: uint256) -> address:
     if token == 0:
@@ -42,12 +37,12 @@ def tradeTokens(sell_token: address, sell_quantity: uint256):
         #self.tokenA.transferFrom(sell_token, self, sell_quantity)
         self.tokenAQty  = self.tokenAQty - sell_quantity
         self.tokenBQty = self.tokenBQty + (self.invariant / sell_quantity)
-        log Transfer(self.tokenA.address, self.tokenB.address, sell_quantity)
+        self.tokenA.transferFrom(msg.sender, self, sell_quantityy)
     else:
         #self.tokenB.transferFrom(sell_token, self, sell_quantity)
         self.tokenAQty  = self.tokenBQty - sell_quantity
         self.tokenBQty = self.tokenAQty + (self.invariant / sell_quantity)
-        log Transfer(self.tokenA.address, self.tokenB.address, sell_quantity)
+        self.tokenB.transferFrom(msg.sender, self, sell_quantityy)
     
 
 # Owner can withdraw their funds and destroy the market maker
