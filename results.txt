@@ -8,3 +8,68 @@ Success: contract successfully withdrew tokenA from trader
 Error: contract failed to receive tokens from trader
 Contract received 0, but user sent 3861
 Error: user expected at least 2858 but received 0
+
+Cloning from: git@github.com:ndalziel/amm.git
+Success: tokenA deposited successfully
+Success: tokenB deposited successfully
+Success: provideLiquidity correctly set owner
+Success: provideLiquidity correctly set invariant
+Success: invariant maintained after trade
+Error: contract failed to withdraw tokens from trader
+Error: contract failed to receive tokens from trader
+Contract received -7064, but user sent 7064
+Error: user expected at least 5220 but received 0
+Success: invariant maintained after trading tokenB
+Error: contract failed to withdraw tokens from trader
+Error: contract failed to receive tokens from trader
+Contract received 13531946, but user sent 8160
+Error: user expected at least 369180 but received 0
+Success: Contract prevented withdrawal from unauthorized user
+Error: withdraw from owner failed
+Sender address = 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+Contract owner = 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+Error: contract failed to withdraw token A
+initial contract balance A = 15921078
+initial user balance A = 10000000
+sum = 25921078
+final user balance A = 10000000
+Error: contract failed to withdraw token B
+initial contract balance B = 29461184
+initial user balance B = 10000000
+sum = 39461184
+final user balance B = 10000000
+Final score = 57
+
+
+
+Cloning from: git@github.com:ndalziel/amm.git
+Success: tokenA deposited successfully
+Success: tokenB deposited successfully
+Success: provideLiquidity correctly set owner
+Success: provideLiquidity correctly set invariant
+Success: invariant maintained after trade
+Success: contract successfully withdrew tokenA from trader
+Error: contract failed to receive tokens from trader
+Contract received -3483, but user sent 3483
+Error: user expected at least 2034 but received 0
+Success: invariant maintained after trading tokenB
+Success: contract successfully withdrew tokenB from trader
+Error: contract failed to receive tokens from trader
+Contract received 123529490, but user sent 1843
+Error: user expected at least 615796 but received 0
+Success: Contract prevented withdrawal from unauthorized user
+Error: withdraw from owner failed
+Sender address = 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+Contract owner = 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+Error: contract failed to withdraw token A
+initial contract balance A = 65729307
+initial user balance A = 10000000
+sum = 75729307
+final user balance A = 10000000
+Error: contract failed to withdraw token B
+initial contract balance B = 189260640
+initial user balance B = 10000000
+sum = 199260640
+final user balance B = 10000000
+Final score = 68
+codio@candle-scroll:~/workspace$ 
