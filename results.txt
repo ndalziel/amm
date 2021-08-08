@@ -1,0 +1,10 @@
+Cloning from: git@github.com:ndalziel/amm.git
+Success: tokenA deposited successfully
+Success: tokenB deposited successfully
+Success: provideLiquidity correctly set owner
+Success: provideLiquidity correctly set invariant
+Success: invariant maintained after trade
+Success: contract successfully withdrew tokenA from trader
+Error: contract failed to receive tokens from trader
+Contract received 0, but user sent 3861
+Error: user expected at least 2858 but received 0
