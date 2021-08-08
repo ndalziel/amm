@@ -8,11 +8,6 @@ tokenA: ERC20 #The ERC20 contract for tokenA
 tokenB: ERC20 #The ERC20 contract for tokenB
 owner: public(address) #The liquidity provider (the address that has the right to withdraw funds and close the contract)
 
-# event Transfer:
-#     sender: indexed(address)
-#     receiver: indexed(address)
-#     value: uint256
-
 @external
 def get_token_address(token: uint256) -> address:
     if token == 0:
@@ -30,6 +25,7 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
     self.tokenB.address = tokenB_addr
     self.tokenAQty = tokenA_quantity
     self.tokenBQty = tokenB_quantity
+    self.invariant = self.tokenAQty*self.tokenBQty
 
     assert self.invariant > 0
 
@@ -37,7 +33,7 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
 @external
 def tradeTokens(sell_token: address, sell_quantity: uint256):
     assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
-    #Your code here
+    self.tokenA.transferFrom(msg.sender, self, sell_quantity)
 
 # Owner can withdraw their funds and destroy the market maker
 @external
