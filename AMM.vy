@@ -27,8 +27,8 @@ def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity
     self.tokenBQty = tokenB_quantity
     self.invariant = self.tokenAQty*self.tokenBQty
     self.owner = msg.sender
-    self.tokenA.transferFrom(tokenA_addr, self, tokenA_quantity)
-    self.tokenB.transferFrom(tokenB_addr, self, tokenB_quantity)
+    self.tokenA.transferFrom(msg.sender, tokenA_addr, tokenA_quantity)
+    self.tokenB.transferFrom(msg.sender, tokenB_addr, tokenB_quantity)
     assert self.invariant > 0
 
 # Trades one token for the other
