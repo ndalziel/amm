@@ -10,29 +10,29 @@ owner: public(address) #The liquidity provider (the address that has the right t
 
 @external
 def get_token_address(token: uint256) -> address:
-	if token == 0:
-		return self.tokenA.address
-	if token == 1:
-		return self.tokenB.address
-	return ZERO_ADDRESS	
+    if token == 0:
+        return self.tokenA.address
+    if token == 1:
+        return self.tokenB.address
+    return ZERO_ADDRESS	
 
 # Sets the on chain market maker with its owner, and initial token quantities
 @external
 def provideLiquidity(tokenA_addr: address, tokenB_addr: address, tokenA_quantity: uint256, tokenB_quantity: uint256):
-	assert self.invariant == 0 #This ensures that liquidity can only be provided once
-	#Your code here
+    assert self.invariant == 0 #This ensures that liquidity can only be provided once
+    #Your code here
     self.tokenA.address = tokenA_addr
     self.tokenB.address = tokenB_addr
     tokenAQty = tokenA_quantity
     tokenBQty = tokenB_quantity
 
-	assert self.invariant > 0
+    assert self.invariant > 0
 
 # Trades one token for the other
 @external
 def tradeTokens(sell_token: address, sell_quantity: uint256):
-	assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
-	#Your code here
+    assert sell_token == self.tokenA.address or sell_token == self.tokenB.address
+    #Your code here
 
 # Owner can withdraw their funds and destroy the market maker
 @external
